@@ -44,6 +44,8 @@ np.random.seed(_GLOBAL_SEED)
 torch.manual_seed(_GLOBAL_SEED)
 torch.backends.cudnn.benchmark = True
 
+from jepa_src.models.vision_transformer import VIT_EMBED_DIMS as JEPA_DIM_SIZE
+
 import logging
 from jepa_src.utils.logging import get_logger
 logger = get_logger(force=True)

@@ -30,6 +30,7 @@ jepa_src/models/utils/patch_embed.py
 jepa_src/models/utils/pos_embs.py
 jepa_src/utils/__init__.py
 jepa_src/utils/distributed.py
+jepa_src/utils/functional.py
 jepa_src/utils/logging.py
 jepa_src/utils/monitoring.py
 jepa_src/utils/schedulers.py

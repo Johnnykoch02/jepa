@@ -1,13 +1,13 @@
  VJEPA Encoder
 
-The VJEPA Encoder finetuned JEPA model trained on [High Speed and High Dynamic Range Video with an Event Camera IEEE Transactions on Pattern Analysis and Machine Intelligence, 2019](https://rpg.ifi.uzh.ch/event_driving_datasets.html). This package is an adaptation to `facebookresearch/jepa` to enable ease of use of the Jepa Architecture built with Vision Transformers.
+The VJEPA Encoder is a Python package that provides an implementation of the encoder component from the JEPA (Joint Encoding for Prediction and Alignment) architecture proposed by Facebook AI Research. The encoder is designed to extract meaningful representations from visual data. I do not own the rights or lay claim to the copyright of this software. This package is an adaptation to `facebookresearch/jepa` to enable ease of use of the Jepa Architecture built with Vision Transformers.
 
 ## Installation
 
 To install the VJEPA Encoder package, you can use pip:
 
 ```
-pip install vjepa_encoder
+pip install vjepa-encoder
 ```
 
 ## Usage
@@ -23,11 +23,18 @@ from vjepa_encoder.vision_encoder import JepaEncoder
 To load the pre-trained encoder, you can use the `load_model` function:
 
 ```python
+config_file_path = "./params-encoder.yaml"
+devices = ["cuda:0"]
 encoder = JepaEncoder.load_model(config_file_path, devices)
 ```
 
 - `config_file_path`: Path to the configuration file (YAML) containing the model settings.
 - `devices`: List of devices (e.g., `['cuda:0']`) to use for distributed training. If not provided, the model will be loaded on the CPU.
+
+
+#### Important Notes about the Config File:
+
+- the config file provided in this repo provides the basics for loading and using the encoder. The most important things to note in this file are the `r_checkpoint`: points at the `.tar` file for the JEPA checkpoint, and the `tabulet_size`: this is used in some temporal calculation and if you plan on embedding images you should set this to `1`; set this to `N` if you plan on using a temporal dimension for your data, where N corresponds to however many temporal inputs you have.
 
 ### Preprocessing Data
 
@@ -73,6 +80,6 @@ The VJEPA Encoder is based on the research work conducted by Facebook AI Researc
 
 ## Contact
 
-If you have any questions or suggestions regarding the VJEPA Encoder, please feel free to contact me at johnnykoch02@gmail.com.
+If you have any questions or suggestions regarding the VJEPA Encoder, please feel free to contact us at johnnykoch02@gmail.com.
 
 ---

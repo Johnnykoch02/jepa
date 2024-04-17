@@ -7,7 +7,7 @@
 import os
 from setuptools import setup
 
-VERSION = "0.0.2"
+VERSION = "0.0.4"
 
 from setuptools import setup, find_packages
 
@@ -24,7 +24,7 @@ if __name__ == "__main__":
         description="JEPA research code.",
         author="Jonathan Koch",
         author_email="johnnykoch02@gmail.com",
-        python_requires=">=3.9",
+        python_requires=">=3.7",
         packages=find_packages(),
         install_requires=get_requirements(),
     )

@@ -7,7 +7,7 @@ The VJEPA Encoder is a Python package that provides an implementation of the enc
 To install the VJEPA Encoder package, you can use pip:
 
 ```
-pip install vjepa_encoder
+pip install vjepa-encoder
 ```
 
 ## Usage
@@ -30,6 +30,11 @@ encoder = JepaEncoder.load_model(config_file_path, devices)
 
 - `config_file_path`: Path to the configuration file (YAML) containing the model settings.
 - `devices`: List of devices (e.g., `['cuda:0']`) to use for distributed training. If not provided, the model will be loaded on the CPU.
+
+
+#### Important Notes about the Config File:
+
+- the config file provided in this repo provides the basics for loading and using the encoder. The most important things to note in this file are the `r_checkpoint`: points at the `.tar` file for the JEPA checkpoint, and the `tabulet_size`: this is used in some temporal calculation and if you plan on embedding images you should set this to `1`; set this to `N` if you plan on using a temporal dimension for your data, where N corresponds to however many temporal inputs you have.
 
 ### Preprocessing Data
 
